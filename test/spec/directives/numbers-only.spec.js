@@ -84,5 +84,21 @@ describe('numbersOnly', function() {
       });
     });
 
+    describe('When has not a number if input', function() {
+      beforeEach(function() {
+        element = compileElement();
+        window.event = {keyCode: 49};
+        spyOn(String, 'fromCharCode').and.returnValue('');
+        ngModel.$setViewValue('');
+        element.triggerHandler('keypress');
+        rootScope.$digest();
+      });
+
+      it('should return an empty string', function() {
+        expect(element.val()).toBe('');
+      });
+    });
+
+
   });
 });

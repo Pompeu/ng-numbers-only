@@ -69,7 +69,7 @@ describe('numbersOnly', function() {
       });
     });
 
-    describe('When is a number no has decimal values', function() {
+    describe('When input number is an integer', function() {
       beforeEach(function() {
         element = compileElement();
         window.event = {keyCode: 49};
@@ -79,12 +79,12 @@ describe('numbersOnly', function() {
         rootScope.$digest();
       });
 
-      it('should show numbers without decimal values', function() {
+      it('should show number without decimal values', function() {
         expect(element.val()).toBe('53');
       });
     });
 
-    describe('When has not a number if input', function() {
+    describe('When input is empty', function() {
       beforeEach(function() {
         element = compileElement();
         window.event = {keyCode: 49};
